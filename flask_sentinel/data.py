@@ -14,7 +14,7 @@ import bcrypt
 from werkzeug.security import gen_salt
 
 from .core import mongo, redis
-from .models import Client, User, Token
+from .models import Client, User, Profile, Token
 
 
 # TODO use SONManipulator instead of custom de/serializers perhaps?
