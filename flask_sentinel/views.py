@@ -42,6 +42,7 @@ def aux_login():
     """ This endpoint is for vieweing and adding users and clients. """
     if request.method == 'POST':
         print(request)
+        print(request.__dict__)
         Storage.save_user(request.form['username'], request.form['password'])
     # if request.method == 'POST' and request.form['submit'] == 'Add Client':
     #     Storage.generate_client()
