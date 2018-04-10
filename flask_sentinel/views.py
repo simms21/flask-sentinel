@@ -48,7 +48,7 @@ def aux_login():
         print(request.data)
         print(request.authorization)
         print(request['HTTP_AUTHORIZATION'].split(':'))
-        username, password = request['HTTP_AUTHORIZATION'].split(':')
+        username, password = getattr(request,'HTTP_AUTHORIZATION').split(':')
 
         Storage.save_user(username,password)
     # if request.method == 'POST' and request.form['submit'] == 'Add Client':
