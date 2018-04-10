@@ -40,9 +40,9 @@ def management():
 @requires_basicauth
 def aux_login():
     """ This endpoint is for vieweing and adding users and clients. """
+    for name in dir(request):
+        print(name, request[name])
     if request.method == 'POST':
-        for name in dir(request):
-            print(name, request[name])
         # print(request.__dict__)
         print(request.data)
         print(request.authorization)
