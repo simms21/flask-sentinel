@@ -48,5 +48,11 @@ def aux_login():
         username, password = request.environ.get('HTTP_AUTHORIZATION').split(':')
         print(username,password)  
         Storage.save_user(username,password)
+
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+
+        # Storage.save_profile(first_name=first_name, last_name=last_name,email=email)
     return render_template('management.html', users=Storage.all_users(),
                            clients=Storage.all_clients())

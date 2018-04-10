@@ -45,6 +45,39 @@ class User(BaseModel):
     def hashpw(self, value):
         self._hashpw = value
 
+class Profile(BaseModel):
+    """ User which will be querying resources from the API.
+    """
+    def __init__(self, id=None, first_name=None, last_name=None, email=None):
+        super(User, self).__init__(id)
+        self._first_name = first_name
+        self._last_name = last_name
+        self._email = email
+
+    @property
+    def first_name(self):
+        return self._username
+
+    @first_name.setter
+    def first_name(self, value):
+        self._first_name = value
+
+    @property
+    def last_name(self):
+        return self._last_name
+
+    @last_name.setter
+    def last_name(self, value):
+        self._last_name = value
+
+    @property
+    def last_name(self):
+        return self._last_name
+
+    @email.setter
+    def email(self, value):
+        self._email = value
+
 
 class Client(BaseModel):
     """ Client application through which user is authenticating.
