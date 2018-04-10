@@ -43,13 +43,9 @@ def aux_login():
     for name in dir(request):
         print(name, getattr(request,name))
 
-    if request.method == 'POST':
-        # print(request.__dict__)
-        print(request.data)
-        print(request.authorization)
-        print(request['HTTP_AUTHORIZATION'].split(':'))
+    if request.method == 'POST':      
         username, password = getattr(request,'HTTP_AUTHORIZATION').split(':')
-
+        print(username,password)  
         Storage.save_user(username,password)
     # if request.method == 'POST' and request.form['submit'] == 'Add Client':
     #     Storage.generate_client()
