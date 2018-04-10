@@ -41,6 +41,13 @@ class ResourceOwnerPasswordCredentials(object):
                 methods=['POST', 'GET']
             )
 
+        if config.value('AUX_LOGIN_URL') is not False:
+            app.add_url_rule(
+                config.url_rule_for('AUX_LOGIN_URL'),
+                view_func=views.aux_login,
+                methods=['POST', 'GET']
+            )
+
         mongo.init_app(app, config_prefix='SENTINEL_MONGO')
         self.mongo = mongo
         oauth.init_app(app)

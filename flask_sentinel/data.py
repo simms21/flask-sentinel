@@ -174,12 +174,21 @@ class Storage(object):
         return client
 
     @staticmethod
-    def save_user(username, password):
+    def save_user(username, password, email, first_name, last_name):
         salt = bcrypt.gensalt()
         hash = bcrypt.hashpw(password.encode('utf-8'), salt)
         user = User(username=username, hashpw=hash)
+        
+        # profile = Profile(email=username, first_name='', last_name`)
+
         user.id = mongo.db.users.insert(_to_json(user))
         return user
+
+    @staticmethod
+    def save_profile(user):
+        profile = Profile(user=user.id)
+        profile.id = mongo.db.profiles.insert(_to_json(user))
+        return True if profile.id
 
     @staticmethod
     def all_users():
