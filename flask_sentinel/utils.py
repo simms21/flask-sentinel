@@ -7,7 +7,6 @@
     :license: BSD, see LICENSE for more details.
 """
 
-
 class Config(object):
     def __init__(self, app):
         self.prefix = 'SENTINEL'
