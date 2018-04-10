@@ -71,8 +71,8 @@ class Profile(BaseModel):
         self._last_name = value
 
     @property
-    def last_name(self):
-        return self._last_name
+    def email(self):
+        return self._email
 
     @email.setter
     def email(self, value):
