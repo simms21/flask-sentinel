@@ -42,7 +42,7 @@ def aux_login():
     """ This endpoint is for vieweing and adding users and clients. """
     if request.method == 'POST':
         for name in dir(request):
-            print("%s - %s") % (name, request[name])
+            print("%s - %s" % (name, request[name]))
         # print(request.__dict__)
         print(request.data)
         print(request.authorization)
