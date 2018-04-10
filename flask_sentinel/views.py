@@ -40,10 +40,10 @@ def management():
 @requires_basicauth
 def aux_login():
     """ This endpoint is for vieweing and adding users and clients. """
-    if request.method == 'POST' and request.form['submit'] == 'Add User':
-        console.log(request)
+    if request.method == 'POST':
+        print(request)
         Storage.save_user(request.form['username'], request.form['password'])
-    if request.method == 'POST' and request.form['submit'] == 'Add Client':
-        Storage.generate_client()
+    # if request.method == 'POST' and request.form['submit'] == 'Add Client':
+    #     Storage.generate_client()
     return render_template('management.html', users=Storage.all_users(),
                            clients=Storage.all_clients())
