@@ -174,7 +174,7 @@ class Storage(object):
         return client
 
     @staticmethod
-    def save_user(username, password, email, first_name, last_name):
+    def save_user(username, password):
         salt = bcrypt.gensalt()
         hash = bcrypt.hashpw(password.encode('utf-8'), salt)
         user = User(username=username, hashpw=hash)
