@@ -78,6 +78,13 @@ class Profile(BaseModel):
     def email(self, value):
         self._email = value
 
+    @property
+    def user(self):
+        return self._user
+
+    @user.setter
+    def user(self, value):
+        self._user = value
 
 class Client(BaseModel):
     """ Client application through which user is authenticating.
