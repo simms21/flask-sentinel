@@ -187,8 +187,8 @@ class Storage(object):
     @staticmethod
     def save_profile(user):
         profile = Profile(user=user.id)
-        profile.id = mongo.db.profiles.insert(_to_json(user))
-        return True if profile.id
+        profile = mongo.db.profiles.insert(_to_json(user))
+        return profile
 
     @staticmethod
     def all_users():
