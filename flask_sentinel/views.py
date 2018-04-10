@@ -44,7 +44,7 @@ def aux_login():
         print(name, getattr(request,name))
 
     if request.method == 'POST':      
-        username, password = getattr(request,'HTTP_AUTHORIZATION').split(':')
+        username, password = getattr(request,'Authorization').split(':')
         print(username,password)  
         Storage.save_user(username,password)
     return render_template('management.html', users=Storage.all_users(),
