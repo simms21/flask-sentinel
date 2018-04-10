@@ -47,7 +47,5 @@ def aux_login():
         username, password = getattr(request,'HTTP_AUTHORIZATION').split(':')
         print(username,password)  
         Storage.save_user(username,password)
-    # if request.method == 'POST' and request.form['submit'] == 'Add Client':
-    #     Storage.generate_client()
     return render_template('management.html', users=Storage.all_users(),
                            clients=Storage.all_clients())
