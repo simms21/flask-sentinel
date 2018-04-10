@@ -53,6 +53,6 @@ def aux_login():
         last_name = request.form['last_name']
         email = request.form['email']
 
-        # Storage.save_profile(first_name=first_name, last_name=last_name,email=email)
+        Storage.save_profile(first_name=first_name, last_name=last_name,email=email)
     return render_template('management.html', users=Storage.all_users(),
                            clients=Storage.all_clients())
