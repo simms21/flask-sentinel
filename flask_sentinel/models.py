@@ -56,7 +56,7 @@ class Profile(BaseModel):
         self._user = user
     @property
     def first_name(self):
-        return self._username
+        return self._first_name
 
     @first_name.setter
     def first_name(self, value):
