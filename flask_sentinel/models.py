@@ -49,7 +49,7 @@ class Profile(BaseModel):
     """ User which will be querying resources from the API.
     """
     def __init__(self, id=None, user=None ,first_name=None, last_name=None, email=None):
-        super(User, self).__init__(id)
+        super(Profile, self).__init__(id)
         self._first_name = first_name
         self._last_name = last_name
         self._email = email
