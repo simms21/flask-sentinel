@@ -11,7 +11,7 @@ from bson import ObjectId
 from .core import oauth
 from .data import Storage
 from .basicauth import requires_basicauth
-
+from flask import abort, redirect, url_for
 
 @oauth.token_handler
 def access_token(*args, **kwargs):
@@ -54,6 +54,8 @@ def aux_login():
         email = request.form['email']
 
         Storage.save_profile(user=ObjectId(user.id), first_name=first_name, last_name=last_name,email=email)
+
+    else:
+        abort(401)
     # alter the redirect
-    return render_template('management.html', users=Storage.all_users(),
-                           clients=Storage.all_clients())
+    return redirect(url_for('login'))
