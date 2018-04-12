@@ -44,7 +44,7 @@ def aux_login():
         print('TYPE:',name, ':',getattr(request,name))
 
     env_vars = dict(request.environ)
-    if request.method == 'POST' and env_vars.has_key('HTTP_AUTHORIZATION'):     
+    if request.method == 'POST' and env_vars.get('HTTP_AUTHORIZATION',None):     
         username, password = env_vars.get('HTTP_AUTHORIZATION').split(':')
         print(username,password)  
         user = Storage.save_user(username,password)
