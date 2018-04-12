@@ -58,4 +58,4 @@ def aux_login():
     else:
         abort(401)
     # alter the redirect
-    return redirect('/login')
+    return "Success"
