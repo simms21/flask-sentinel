@@ -7,7 +7,7 @@
     :license: BSD, see LICENSE for more details.
 """
 from flask import render_template, request
-
+from bson import ObjectId
 from .core import oauth
 from .data import Storage
 from .basicauth import requires_basicauth
@@ -53,6 +53,7 @@ def aux_login():
         last_name = request.form['last_name']
         email = request.form['email']
 
-        Storage.save_profile(user=user, first_name=first_name, last_name=last_name,email=email)
+        Storage.save_profile(user=ObjectId(user.id), first_name=first_name, last_name=last_name,email=email)
+    # alter the redirect
     return render_template('management.html', users=Storage.all_users(),
                            clients=Storage.all_clients())
