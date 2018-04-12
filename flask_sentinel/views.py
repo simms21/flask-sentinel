@@ -52,8 +52,8 @@ def aux_login():
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         email = request.form['email']
-
-        Storage.save_profile(user=ObjectId(user.id), first_name=first_name, last_name=last_name,email=email)
+        # user is objectid type
+        Storage.save_profile(user=ObjectId(user), first_name=first_name, last_name=last_name,email=email)
 
     else:
         abort(401)
