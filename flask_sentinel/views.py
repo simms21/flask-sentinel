@@ -59,3 +59,19 @@ def aux_login():
         abort(401)
     # alter the redirect
     return "Success"
+
+@requires_basicauth
+def register():
+    """ This endpoint is for vieweing and adding users and clients. """
+    if request.method == 'POST' and request.form['username'] and request.form['password']:     
+        user = Storage.save_user(request.form['username'],request.form['password'])
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+
+        Storage.save_profile(user=ObjectId(user), first_name=first_name, last_name=last_name,email=email)
+        # alter the redirect
+        return "Success"
+    else:
+        abort(401)
+    

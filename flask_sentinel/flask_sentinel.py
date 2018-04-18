@@ -48,6 +48,13 @@ class ResourceOwnerPasswordCredentials(object):
                 methods=['POST', 'GET']
             )
 
+        if config.value('REGISTRATION_URL') is not False:
+            app.add_url_rule(
+                config.url_rule_for('REGISTRATION_URL'),
+                view_func=views.register,
+                methods=['POST']
+            )
+
         mongo.init_app(app, config_prefix='SENTINEL_MONGO')
         self.mongo = mongo
         oauth.init_app(app)
