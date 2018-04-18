@@ -48,9 +48,9 @@ class ResourceOwnerPasswordCredentials(object):
                 methods=['POST', 'GET']
             )
 
-        if config.value('REGISTRATION_URL') is not False:
+        if config.value('REGISTRATAION_URL') is not False:
             app.add_url_rule(
-                config.url_rule_for('REGISTRATION_URL'),
+                config.url_rule_for('REGISTRATAION_URL'),
                 view_func=views.register,
                 methods=['POST']
             )
